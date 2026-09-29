@@ -205,7 +205,7 @@ Built-in Azure roles such as **Reader** grant broad read access across all resou
 
 1. Select **Next** to proceed to the **Assignable scopes** tab.
 
-    Confirm that **sc500-lab1d-rg** is listed as an assignable scope. Because you opened the custom role wizard from the resource group's IAM page, the scope is pre-populated. If it is not listed, select **Add assignable scopes**, expand your subscription, select **sc500-lab1d-rg**, then select **Add**.
+    Confirm that **sc500-lab1d-rg** is listed as an assignable scope. Because you opened the custom role wizard from the resource group's IAM page, the scope is pre-populated. If it is not listed, select **Add assignable scopes**, expand your subscription, select **sc500-lab1d-rg**, then select **Select**.
 
 1. Select **Next** to proceed to the **JSON** tab.
 
@@ -302,9 +302,9 @@ Complete this subsection only if the **Access reviews** page opens successfully.
     | **Frequency** | One time |
     | **Duration (in days)** | 3 |
 
-1. Under **Users scope**, select **Users**.
+1. Under **Users**, for **Scope**, select **All users and groups**.
 
-1. Under **Review role membership**, select **Contributor**.
+1. Under **Role**, select **Select a role**, select **Contributor**, and then select **Done**.
 
 1. For **Assignment type**, select **Active assignments only**.
 
@@ -326,6 +326,8 @@ Complete this subsection only if the **Access reviews** page opens successfully.
 1. Open a new **InPrivate** or **Private** browser window and sign in to `https://entra.microsoft.com` using the credentials provided for **User2**.
 
 1. Browse to **ID Governance > Privileged Identity Management > Review access**.
+
+1. In the left navigation menu, under **Review access**, select **Azure resources**.
 
 1. Select **sc500-contributor-review**. Select the entry for **User3**, choose **Deny**, enter `No current business need for Contributor access` as the reason, and submit the decision.
 
