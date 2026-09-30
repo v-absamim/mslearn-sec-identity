@@ -58,7 +58,7 @@ On the **Getting started** page, select **No storage account required**, select 
 
 1. When deployment succeeds, close Cloud Shell and continue to the exercise.
 
-===
+---
 
 # Configure Azure Policy and Role-Based Access Control
 
@@ -99,8 +99,8 @@ Azure Policy evaluates resources against defined rules and reports compliance wi
     | **Scope** | Select the ellipsis (**...**), then select your subscription and **sc500-lab1d-rg** as the resource group. Select **Select**. |
     | **Exclusions** | Leave blank |
     | **Policy definition** | Select the ellipsis (**...**), search for **`Require a tag on resources`**, select the result, then select **Add**. |
-    | **Assignment name** | sc500-require-env-tag |
-    | **Policy enforcement** | Enabled |
+    | **Assignment name** | `sc500-require-env-tag` |
+    | **Policy enforcement** | Default |
 
 1. Select the **Parameters** tab.
 
@@ -122,11 +122,11 @@ Azure Policy evaluates resources against defined rules and reports compliance wi
 
     > **Note**: If the compliance state still shows **Not started** or **0 non-compliant resources** after the command completes, wait 2–3 additional minutes and select **Refresh** in the portal. Compliance state updates are written asynchronously after the scan finishes.
 
-1. In the Azure portal, return to **Policy** and select **Compliance** from the left menu.
+1. In the **Azure portal**, return to **Policy** and select **Compliance** from the left menu.
 
-1. In the scope filter at the top of the page, select `sc500-lab1d-rg` to narrow results to this resource group.
+1. In the **Search** box at the top of the **Compliance** page, enter `sc500-lab1d-rg` to locate the policy assignment for the resource group.
 
-1. Locate the **sc500-require-env-tag** assignment in the compliance list.
+1. Select the **sc500-require-env-tag** assignment in the compliance list.
 
 1. Confirm that the storage account (name starts with **`sc500lab1d`**) and **sc500-lab1d-vnet** virtual network appear in the non-compliant resources list.
 
@@ -163,9 +163,9 @@ The **sc500-lab1d-policy.bicep** file is provided in the **F:\AllFiles\Lab-1D** 
 
     > **Note**: The `--location eastus` flag specifies the region for the deployment metadata record, not where resources are created. Subscription-scope Bicep deployments must specify a location for the ARM metadata even when the resources they create (like policy definitions) are globally scoped.
 
-1. In the Azure portal, navigate to **Policy** and select **Definitions** from the left menu.
+1. In the **Azure portal**, navigate to **Policy** and select **Definitions** from the left menu.
 
-1. In the **Type** filter, select **Custom**.
+1. In the **Policy type** filter, select **Custom**.
 
     Confirm that a custom policy definition for requiring a **Require Environment tag on resource groups** policy appears in the list. This is the definition deployed by the Bicep template.
 
@@ -205,7 +205,7 @@ Built-in Azure roles such as **Reader** grant broad read access across all resou
 
 1. Select **Next** to proceed to the **Assignable scopes** tab.
 
-    Confirm that **sc500-lab1d-rg** is listed as an assignable scope. Because you opened the custom role wizard from the resource group's IAM page, the scope is pre-populated. If it is not listed, select **Add assignable scopes**, expand your subscription, select **sc500-lab1d-rg**, then select **Select**.
+    Confirm that **sc500-lab1d-rg** is listed as an assignable scope. Because you opened the custom role wizard from the resource group's IAM page, the scope is pre-populated. If it is not listed, select **+ Add assignable scopes**, expand your subscription, select **sc500-lab1d-rg**, then select **Select**.
 
 1. Select **Next** to proceed to the **JSON** tab.
 
@@ -300,7 +300,6 @@ Complete this subsection only if the **Access reviews** page opens successfully.
     | **Description** | `Review of Contributor access on the lab subscription` |
     | **Start date** | Today's date |
     | **Frequency** | One time |
-    | **Duration (in days)** | 3 |
 
 1. Under **Users**, for **Scope**, select **All users and groups**.
 
